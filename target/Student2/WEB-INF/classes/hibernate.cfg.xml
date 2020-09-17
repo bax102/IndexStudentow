@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <property name="connection.url">jdbc:mysql://46.41.139.149:3306/student_database?serverTimezone=Europe/Warsaw&amp;createDatabaseIfNotExist=true
+        </property>
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <property name="connection.user">user</property>
+        <property name="connection.password">root</property>
+        <property name="dialect">org.hibernate.dialect.MySQL5Dialect</property>
+
+        <!-- update dopisuje kolumny jeśli brakuje -->
+        <!-- create przebudowuje bazę danych (jej tabele) - używamy jeśli mamy błąd w bazie danych i chcemy go naprawić (UWAGA! czyści dane!) -->
+        <!-- create-drop przebudowuje bazę (nie tylko tabele) -->
+        <!-- validate - do nothing - zweryfikuj -->
+        <!--czy chcesz zebym sam stworzyl baze?-->
+        <property name="hbm2ddl.auto">update</property> <!-- hibernate to data definition language - polityka generowania tabel -->
+
+        <property name="show_sql">true</property>
+        <mapping class="ps.sda.javagdy2.database.model.Student"/>
+        <mapping class="ps.sda.javagdy2.database.model.Grade"/>
+    </session-factory>
+</hibernate-configuration>
